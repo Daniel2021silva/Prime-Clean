@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prime Clean Soluções | Limpeza e Conservação Profissional</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f5f9fb;
+      color: #102030;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    header {
+      width: 100%;
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo h1 {
+      color: #063b5c;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      font-size: 13px;
+      color: #17a2a4;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: #213547;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #17a2a4;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #17a2a4, #063b5c);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(23,162,164,0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(23,162,164,0.35);
+    }
+
+    .btn-outline {
+      border: 2px solid #17a2a4;
+      color: #063b5c;
+      background: #ffffff;
+    }
+
+    .btn-outline:hover {
+      background: #17a2a4;
+      color: #ffffff;
+    }
+
+    .menu-mobile {
+      display: none;
+      font-size: 30px;
+      color: #063b5c;
+      cursor: pointer;
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(6,59,92,0.95), rgba(23,162,164,0.78)),
+        url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      padding: 100px 0;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 32px;
+      color: #e9f7f7;
+      max-width: 620px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: -42px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      padding: 26px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .stat-card strong {
+      color: #063b5c;
+      font-size: 28px;
+      display: block;
+    }
+
+    .stat-card span {
+      color: #5f6c76;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 48px;
+    }
+
+    .section-title span {
+      color: #17a2a4;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .section-title h2 {
+      color: #063b5c;
+      font-size: 36px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: #5f6c76;
+      font-size: 17px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+      transition: 0.3s;
+      border: 1px solid #e7f0f2;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.1);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      background: #e8fbfb;
+      color: #17a2a4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      color: #063b5c;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #5f6c76;
+      font-size: 15px;
+    }
+
+    .cta-strip {
+      background: linear-gradient(135deg, #063b5c, #17a2a4);
+      color: #ffffff;
+      padding: 54px 0;
+    }
+
+    .cta-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cta-content h2 {
+      font-size: 32px;
+      max-width: 620px;
+      line-height: 1.2;
+    }
+
+    .about {
+      background: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .about-img {
+      min-height: 430px;
+      border-radius: 28px;
+      background:
+        linear-gradient(rgba(6,59,92,0.15), rgba(6,59,92,0.15)),
+        url("https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    .about-text h2 {
+      color: #063b5c;
+      font-size: 36px;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .about-text p {
+      color: #5f6c76;
+      margin-bottom: 16px;
+      font-size: 17px;
+    }
+
+    .check-list {
+      margin-top: 24px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-list div {
+      background: #f1fbfb;
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: #213547;
+      font-weight: 600;
+    }
+
+    .segments-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .segment-card {
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 18px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      font-weight: 700;
+      color: #063b5c;
+    }
+
+    .process {
+      background: #ffffff;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .process-card {
+      padding: 28px;
+      border-radius: 22px;
+      background: #f5f9fb;
+      border: 1px solid #e1eef0;
+    }
+
+    .process-card strong {
+      width: 44px;
+      height: 44px;
+      background: #17a2a4;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 18px;
+    }
+
+    .process-card h3 {
+      color: #063b5c;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: #5f6c76;
+      font-size: 15px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 22px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    }
+
+    .testimonial-card p {
+      color: #5f6c76;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .testimonial-card strong {
+      color: #063b5c;
+    }
+
+    .faq {
+      background: #ffffff;
+    }
+
+    .faq-list {
+      max-width: 850px;
+      margin: auto;
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #f5f9fb;
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid #e3eef1;
+    }
+
+    .faq-item h3 {
+      color: #063b5c;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .faq-item p {
+      color: #5f6c76;
+    }
+
+    .final-cta {
+      background:
+        linear-gradient(120deg, rgba(6,59,92,0.94), rgba(23,162,164,0.82)),
+        url("https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 40px;
+      max-width: 760px;
+      margin: 0 auto 18px;
+      line-height: 1.2;
+    }
+
+    .final-cta p {
+      max-width: 660px;
+      margin: 0 auto 30px;
+      color: #e9f7f7;
+      font-size: 18px;
+    }
+
+    footer {
+      background: #061d2d;
+      color: #ffffff;
+      padding: 48px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    footer h3 {
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    footer p,
+    footer a {
+      color: #b7c9d4;
+      font-size: 15px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      text-align: center;
+      color: #b7c9d4;
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: #25d366;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        position: absolute;
+        top: 78px;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        display: none;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .menu-mobile {
+        display: block;
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .stats,
+      .services-grid,
+      .about-grid,
+      .segments-grid,
+      .process-grid,
+      .testimonial-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-title h2,
+      .about-text h2,
+      .final-cta h2 {
+        font-size: 30px;
+      }
+
+      .whatsapp-float {
+        right: 14px;
+        bottom: 14px;
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container header-content">
+      <div class="logo">
+        <h1>Prime Clean</h1>
+        <span>Soluções em Limpeza e Conservação</span>
+      </div>
+
+      <div class="menu-mobile" onclick="toggleMenu()">☰</div>
+
+      <nav id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#segmentos">Atendemos</a>
+        <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <span class="hero-badge">Terceirização de limpeza com padrão profissional</span>
+
+      <h2>Ambientes limpos, organizados e bem cuidados todos os dias.</h2>
+
+      <p>
+        A Prime Clean Soluções oferece serviços completos de limpeza, conservação e manutenção
+        para empresas, escritórios, indústrias, condomínios e ambientes comerciais que precisam
+        de qualidade, confiança e agilidade.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="https://wa.me/53992130125?text=Olá,%20gostaria%20de%20solicitar%20um%20orçamento%20para%20limpeza%20e%20conservação.">
+          Pedir orçamento pelo WhatsApp
+        </a>
+
+        <a class="btn btn-outline" href="#servicos">
+          Ver serviços
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container stats">
+    <div class="stat-card">
+      <strong>100%</strong>
+      <span>Equipe preparada</span>
+    </div>
+
+    <div class="stat-card">
+      <strong>+6</strong>
+      <span>Tipos de serviços</span>
+    </div>
+
+    <div class="stat-card">
+      <strong>24h</strong>
+      <span>Atendimento sob consulta</span>
+    </div>
+
+    <div class="stat-card">
+      <strong>Pro</strong>
+      <span>Padrão profissional</span>
+    </div>
+  </div>
+
+  <section id="servicos">
+    <div class="container">
+      <div class="section-title">
+        <span>Nossos serviços</span>
+        <h2>Soluções completas em limpeza e conservação</h2>
+        <p>
+          Atuamos com limpeza profissional, conservação de ambientes e apoio em manutenção geral,
+          sempre com foco em qualidade, segurança e apresentação impecável.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3>Limpeza de Escritórios</h3>
+          <p>
+            Higienização de mesas, salas, recepções, áreas administrativas, móveis,
+            pisos e ambientes corporativos.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚻</div>
+          <h3>Limpeza de Banheiros</h3>
+          <p>
+            Limpeza, desinfecção, reposição de itens e conservação de banheiros comerciais,
+            empresariais e industriais.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏭</div>
+          <h3>Dependências Industriais</h3>
+          <p>
+            Limpeza de áreas industriais, setores operacionais, pisos, áreas comuns,
+            vestiários e ambientes de grande circulação.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🚪</div>
+          <h3>Corredores e Áreas Comuns</h3>
+          <p>
+            Conservação de corredores, halls, escadas, recepções, salas de espera e áreas
+            compartilhadas.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🪟</div>
+          <h3>Limpeza de Vidros</h3>
+          <p>
+            Limpeza de portas, janelas, divisórias, fachadas internas e superfícies de vidro,
+            deixando o ambiente mais claro e apresentável.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>Manutenção em Geral</h3>
+          <p>
+            Apoio em pequenos reparos, conservação preventiva, organização de ambientes
+            e cuidados gerais com a estrutura.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container cta-content">
+      <h2>Precisa de uma equipe confiável para cuidar da limpeza da sua empresa?</h2>
+
+      <a class="btn btn-outline" href="https://wa.me/53992130125?text=Olá,%20quero%20um%20orçamento%20da%20Prime%20Clean%20Soluções.">
+        Falar com a Prime Clean
+      </a>
+    </div>
+  </section>
+
+  <section class="about" id="sobre">
+    <div class="container about-grid">
+      <div class="about-img"></div>
+
+      <div class="about-text">
+        <h2>Mais do que limpeza: cuidado, conservação e profissionalismo.</h2>
+
+        <p>
+          A Prime Clean Soluções nasceu para atender empresas que precisam manter seus ambientes
+          limpos, seguros e bem apresentados, sem precisar se preocupar com contratação,
+          organização de equipe e rotina operacional.
+        </p>
+
+        <p>
+          Nosso foco é entregar uma solução prática, profissional e eficiente para quem valoriza
+          um ambiente limpo, produtivo e agradável.
+        </p>
+
+        <div class="check-list">
+          <div>✔ Equipe treinada e orientada</div>
+          <div>✔ Atendimento para empresas e condomínios</div>
+          <div>✔ Rotina de limpeza personalizada</div>
+          <div>✔ Mais organização e conservação do ambiente</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="segmentos">
+    <div class="container">
+      <div class="section-title">
+        <span>Quem atendemos</span>
+        <h2>Serviços para diferentes tipos de ambientes</h2>
+        <p>
+          A Prime Clean Soluções atende negócios que precisam de limpeza recorrente,
+          conservação e apresentação profissional.
+        </p>
+      </div>
+
+      <div class="segments-grid">
+        <div class="segment-card">Escritórios</div>
+        <div class="segment-card">Empresas</div>
+        <div class="segment-card">Indústrias</div>
+        <div class="segment-card">Condomínios</div>
+        <div class="segment-card">Lojas</div>
+        <div class="segment-card">Clínicas</div>
+        <div class="segment-card">Escolas</div>
+        <div class="segment-card">Galpões</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-title">
+        <span>Como funciona</span>
+        <h2>Atendimento simples, rápido e profissional</h2>
+        <p>
+          Organizamos a rotina de limpeza conforme a necessidade do seu ambiente.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <strong>1</strong>
+          <h3>Contato inicial</h3>
+          <p>Você entra em contato e informa o tipo de local e serviço desejado.</p>
+        </div>
+
+        <div class="process-card">
+          <strong>2</strong>
+          <h3>Avaliação</h3>
+          <p>Analisamos a necessidade, frequência, tamanho do ambiente e demanda.</p>
+        </div>
+
+        <div class="process-card">
+          <strong>3</strong>
+          <h3>Proposta</h3>
+          <p>Enviamos uma proposta clara, objetiva e alinhada com o serviço necessário.</p>
+        </div>
+
+        <div class="process-card">
+          <strong>4</strong>
+          <h3>Execução</h3>
+          <p>Nossa equipe inicia o serviço com organização, cuidado e padrão profissional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <div class="container cta-content">
+      <h2>Tenha mais tempo para focar no seu negócio. Nós cuidamos da limpeza.</h2>
+
+      <a class="btn btn-outline" href="https://wa.me/53992130125?text=Olá,%20tenho%20interesse%20em%20terceirização%20de%20limpeza.">
+        Solicitar atendimento
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <span>Confiança</span>
+        <h2>Por que contratar a Prime Clean?</h2>
+        <p>
+          Uma empresa de limpeza precisa entregar mais do que aparência. Precisa entregar
+          confiança, rotina, organização e responsabilidade.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p>
+            “A limpeza profissional mudou a apresentação do nosso ambiente e trouxe mais organização para a rotina.”
+          </p>
+          <strong>Empresa cliente</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            “O atendimento é direto, a equipe é cuidadosa e o serviço mantém o ambiente sempre em ordem.”
+          </p>
+          <strong>Cliente corporativo</strong>
+        </div>
+
+        <div class="testimonial-card">
+          <p>
+            “Precisávamos de uma solução prática para limpeza recorrente e encontramos um serviço confiável.”
+          </p>
+          <strong>Gestor administrativo</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-title">
+        <span>Dúvidas frequentes</span>
+        <h2>Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>A Prime Clean atende empresas?</h3>
+          <p>Sim. Atendemos empresas, escritórios, condomínios, lojas, clínicas, indústrias e outros ambientes comerciais.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>O serviço pode ser recorrente?</h3>
+          <p>Sim. É possível contratar limpeza diária, semanal, quinzenal ou conforme a necessidade do local.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Vocês fazem limpeza de banheiros e áreas comuns?</h3>
+          <p>Sim. Realizamos limpeza de banheiros, corredores, recepções, salas, dependências internas e áreas de circulação.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Como faço para pedir orçamento?</h3>
+          <p>Basta clicar no botão de WhatsApp, informar o tipo de ambiente, localização e serviço desejado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="contato">
+    <div class="container">
+      <h2>Solicite agora um orçamento para limpeza e conservação do seu ambiente.</h2>
+
+      <p>
+        Fale com a Prime Clean Soluções e descubra a melhor forma de manter sua empresa limpa,
+        organizada e bem cuidada.
+      </p>
+
+      <a class="btn btn-primary" href="https://wa.me/53992130125?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20limpeza%20e%20conservação.">
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Prime Clean Soluções</h3>
+        <p>Soluções completas em limpeza e conservação.</p>
+        <p>Terceirização de limpeza para empresas, escritórios, indústrias, condomínios e ambientes comerciais.</p>
+      </div>
+
+      <div>
+        <h3>Serviços</h3>
+        <a href="#servicos">Limpeza de escritórios</a>
+        <a href="#servicos">Limpeza de banheiros</a>
+        <a href="#servicos">Dependências industriais</a>
+        <a href="#servicos">Vidros e corredores</a>
+      </div>
+
+      <div>
+        <h3>Contato</h3>
+        <p>WhatsApp: (99) 99999-9999</p>
+        <p>E-mail: contato@primeclean.com.br</p>
+        <p>Atendimento sob orçamento</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      © 2026 Prime Clean Soluções. Todos os direitos reservados.
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/53992130123?text=Olá,%20gostaria%20de%20um%20orçamento%20da%20Prime%20Clean%20Soluções.">
+    WhatsApp
+  </a>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("active");
+    }
+
+    const links = document.querySelectorAll("nav a");
+
+    links.forEach(link => {
+      link.addEventListener("click", () => {
+        const menu = document.getElementById("menu");
+        menu.classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
